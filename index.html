@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>המסע של דרקי – לומדים שחמט</title>
+  <meta name="description" content="מסע הרפתקאות לילדים שלומדים שחמט מההתחלה, עם הדרקון דרקי.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='55' r='38' fill='%2366bb6a'/><circle cx='38' cy='48' r='9' fill='white'/><circle cx='62' cy='48' r='9' fill='white'/><circle cx='40' cy='49' r='4'/><circle cx='64' cy='49' r='4'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Secular+One&family=Varela+Round&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- מסך פתיחה -->
+  <section id="welcome" class="screen">
+    <div class="welcome-card">
+      <div class="dragon-slot big" data-dragon></div>
+      <h1>המסע של דרקי</h1>
+      <p class="lead">שלום! אני דרקי, דרקון קטן שאוהב שחמט.<br>בוא נצא יחד למסע ונלמד את כל הסודות של המשחק!</p>
+      <label for="nameInput">איך קוראים לך?</label>
+      <input id="nameInput" type="text" maxlength="16" autocomplete="off" placeholder="כתוב פה את השם שלך">
+      <button id="startBtn" class="btn btn-big">יוצאים לדרך!</button>
+    </div>
+  </section>
+
+  <!-- מפת המסע -->
+  <section id="map" class="screen hidden">
+    <header class="topbar">
+      <div class="hello" id="helloText"></div>
+      <div class="star-count"><span class="star-icon">★</span> <span id="totalStars">0</span></div>
+      <button id="soundBtn" class="icon-btn" title="צלילים" aria-label="צלילים">🔊</button>
+      <button id="menuBtn" class="icon-btn" title="הגדרות" aria-label="הגדרות">⚙</button>
+    </header>
+    <div class="map-scroll" id="mapScroll">
+      <svg id="mapSvg" xmlns="http://www.w3.org/2000/svg"></svg>
+    </div>
+  </section>
+
+  <!-- מסך שלב -->
+  <section id="level" class="screen hidden">
+    <header class="topbar">
+      <button id="backBtn" class="btn btn-small">→ למפה</button>
+      <div class="level-title" id="levelTitle"></div>
+      <div class="level-progress" id="levelProgress"></div>
+    </header>
+    <div class="level-body">
+      <div class="board-wrap">
+        <div id="board" class="board" dir="ltr"></div>
+      </div>
+      <aside class="side">
+        <div class="guide">
+          <div class="dragon-slot" data-dragon id="guideDragon"></div>
+          <div class="bubble" id="bubble"></div>
+        </div>
+        <div class="stats" id="stats"></div>
+        <div class="actions">
+          <button id="hintBtn" class="btn">💡 רמז</button>
+          <button id="undoBtn" class="btn">↶ חזור מהלך</button>
+          <button id="restartBtn" class="btn">⟳ מההתחלה</button>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- חלון תוצאה -->
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <div class="dragon-slot" data-dragon id="modalDragon"></div>
+      <h2 id="modalTitle"></h2>
+      <div class="modal-stars" id="modalStars"></div>
+      <p id="modalText"></p>
+      <div class="modal-actions" id="modalActions"></div>
+    </div>
+  </div>
+
+  <div id="confetti"></div>
+
+  <script src="js/chess.js"></script>
+  <script src="js/levels.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
